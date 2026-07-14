@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_api/widgets/image_item.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,7 +21,13 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: ListView.builder(
         itemBuilder: (context, index) {
-          return Text("data");
+          return ImageItemWidget(
+            image: dummyImage,
+            title: 'This is a sample news title for item $index',
+            onTap: () {
+              // Handle item tap
+            },
+          );
         },
         itemCount: 30,
       ),
