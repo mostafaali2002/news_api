@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class ImageItemWidget extends StatelessWidget {
@@ -21,26 +22,13 @@ class ImageItemWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 10,
           children: [
-            //! image
-            ClipRRect(
-              borderRadius: BorderRadius.circular(10),
-              child: Image.network(
-                image,
-
-                height: 200,
-                width: double.infinity,
-                fit: BoxFit.cover,
+            Center(
+              child: CachedNetworkImage(
+                imageUrl: image,
+                placeholder: (context, url) => CircularProgressIndicator(),
+                errorWidget: (context, url, error) => Icon(Icons.error),
               ),
-
-              // Image.network(
-              //   image,
-              //   width: double.infinity,
-              //   height: 200,
-              //   fit: BoxFit.cover,
-              // ),
             ),
-
-            //! title
             Text(
               title,
               style: TextStyle(
