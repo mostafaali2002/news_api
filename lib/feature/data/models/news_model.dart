@@ -1,4 +1,4 @@
-import 'package:news_api/data/models/articles_model.dart';
+import 'package:news_api/feature/data/models/articles_model.dart';
 
 class NewsModel {
   String? status;
