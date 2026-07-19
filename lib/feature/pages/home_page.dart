@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_api/feature/pages/page_model/home_cubit_cubit.dart';
+import 'package:news_api/feature/pages/repo/data_source/home_data_source_remote_inmplement.dart';
+import 'package:news_api/feature/pages/repo/repo/home_repo_implement.dart';
 import 'package:news_api/widgets/image_item.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,7 +17,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<HomeCubit>(
-      create: (context) => HomeCubit()..featchNews(),
+      create: (context) =>
+          HomeCubit(HomeRepoImplement(HomeDataSourceRemoteImplement()))
+            ..fetchNews(),
       child: Scaffold(
         backgroundColor: Color(0xff202020),
         appBar: AppBar(
