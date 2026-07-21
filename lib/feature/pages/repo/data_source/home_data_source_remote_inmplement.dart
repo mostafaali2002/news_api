@@ -18,7 +18,9 @@ class HomeDataSourceRemoteImplement implements HomeDataSourceRemoteInterface {
       var json = jsonDecode(data);
       return NewsModel.fromjson(json);
     } on Exception catch (e) {
-      throw (e);
+      throw Exception(
+        "Error in HomeDataSourceRemoteImplement: ${e.toString()}",
+      );
     }
   }
 }
